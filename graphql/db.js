@@ -1,4 +1,4 @@
-export const people = [
+export let people = [
     {
         id: 1,
         name: 'Eunsu Kim',
@@ -31,7 +31,7 @@ export const people = [
     },
 ];
 
-export const movies = [
+export let movies = [
     {
         id: 1,
         name: '극한직업',
@@ -49,6 +49,8 @@ export const movies = [
     }
 ]
 
+let counter = movies.length;
+
 export const getPersonById = (id) => {
     const filteredPerson = people.filter(person => person.id == id);
     console.log(filteredPerson);
@@ -63,9 +65,10 @@ export const getMovieById = (id) => {
 
 export const deleteMovie = (id) => {
     const filteredMovies = movies.filter(movie => movie.id !== id);
+    console.log(movies.length, filteredMovies.length);
     // movies의 길이가 더 길다면 주어진 id의 영화(즉, 없어질 영화가)존재한다는 것이다
-    if(movies.length > filteredMovies){
-        movie = filteredMovies;
+    if(movies.length > filteredMovies.length){
+        movies = filteredMovies;
         return true;
     }
     return false;
@@ -73,7 +76,7 @@ export const deleteMovie = (id) => {
 
 export const addMovie = (_name, _score) => {
     const newMovie = {
-        id: movies.length + 1,
+        id: ++counter,
         name: _name,
         score: _score
     }
