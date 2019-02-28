@@ -32,6 +32,7 @@ export const people = [
 ];
 
 export const getPersonById = (id) => {
-    const filteredPerson = people.filter(person => person.id === id);
-    return filteredPerson;
+    const filteredPerson = people.filter(person => person.id == id);
+    console.log(filteredPerson);
+    return filteredPerson[0];
 }
