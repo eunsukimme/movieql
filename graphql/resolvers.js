@@ -1,11 +1,8 @@
-const eunsu = {
-    name: 'Eunsu Kim',
-    age: 23,
-    gender: 'male'
-}
+import { people, getPersonById } from './db';
 
 export const resolvers = {
     Query: {
-        person: () => eunsu
+        people: () => people,
+        person: () => getPersonById()
     }
 }
